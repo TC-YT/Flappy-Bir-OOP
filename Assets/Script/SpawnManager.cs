@@ -19,6 +19,22 @@ public class SpawnManager : MonoBehaviour
             SpawnPipe();
             yield return new WaitForSeconds(spawnRate);
         }
+
+        while (!GameManager.Instance.IsGameStarted())
+    {
+        yield return null;
+    }
+
+    while (true)
+    {
+        if (GameManager.Instance.IsGameStarted() &&
+            !GameManager.Instance.IsGameOver())
+        {
+            SpawnPipe();
+        }
+
+        yield return new WaitForSeconds(spawnRate);
+    }
     }
 
     void SpawnPipe()

@@ -27,7 +27,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-		    
+		ShowStartPanel();
+        HideGameOverPanel();
     }
 
     public void ShowStartPanel()
